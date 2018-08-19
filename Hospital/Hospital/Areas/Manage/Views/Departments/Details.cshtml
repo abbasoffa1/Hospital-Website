@@ -1,0 +1,37 @@
+﻿@model Hospital.Models.Department
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Manage/Views/Shared/_LayoutManage.cshtml";
+}
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row clearfix">
+
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+
+                        <label>Photo</label>
+                        <img src="~/Uploads/@Model.Photo" class="img-thumbnail rounded-circle" alt="profile-image">
+                        <label>Name</label>
+                        <h4 class="m-b-5 m-t-20">@Model.Name</h4>
+                        <label>About</label>
+                        <p class="text-muted">@Model.About</p>
+
+                        <label style="display:block">Event Name</label>
+                        <p style="display:block" class="text-muted">@Model.Event.Name</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12 text-center">
+                <a href="@Url.Action("create","departments")" class="btn btn-raised g-bg-cyan">Add Department</a>
+            </div>
+        </div>
+    </div>
+</section>

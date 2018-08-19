@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/regular.css" integrity="sha384-avJt9MoJH2rB4PKRsJRHZv7yiFZn8LrnXuzvmZoD3fh1aL6aM6s0BBcnCvBe6XSD"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/One/css/navbar.css">
+    <link rel="stylesheet" href="~/One/css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section id="navbar">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-2 logo">
+                    <li >
+                        <a href="@Url.Action("index","home")">
+                            <img src="~/One/images/logo-79x92.png" style="padding-bottom: 12px;">
+
+                        </a>
+                    </li>
+                </div>
+                <div class="col-md-9 col-xs-12">
+                    <nav class="nav-collapse">
+                        <ul class="navbars">
+                            <li>
+                                <a href="@Url.Action("index","home")">Home</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("index","about")">About Us</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("index","departments")">Departments</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("index","Timetable")">Timetable</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("index","doctors")">Doctors</a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("index","contact")">Contacts</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-1 col-xs-6 searchaa">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    @RenderBody()
+    <div class="cell-xs-6 cell-sm-6 text-xs-left">
+        <p class="copyright preffix-xl-70">
+            Clinic	 <span class="copyright-year"></span>. <a href="privacy-policy.html">Privacy Policy</a>
+        </p>
+    </div>
+    <script src="~/One/js/core.min.js"></script>
+    <script src="~/One/js/script.js"></script>
+</body>
+</html>

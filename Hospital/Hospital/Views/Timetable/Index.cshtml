@@ -1,0 +1,233 @@
+﻿
+@model Hospital.Models.AddView
+<!-- Breadcrumbs-->
+<section class="section section-breadcrumb">
+    <div class="parallax-container breadcrumb-wrapper" data-parallax-img="/One/images/bg-06.jpg">
+        <div class="parallax-content section-lg context-dark">
+            <div class="shell context-dark">
+                <h2>Timetable</h2>
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
+    <ul class="breadcrumb-custom">
+        <li><a href="@Url.Action("index","home")">Home</a></li>
+        <li>
+            Timetable
+        </li>
+    </ul>
+</section>
+<!-- DateTimeTable-->
+<section class="section section-lg bg-white">
+    <div class="shell">
+        <button class="button button-timeline button-sm button-primary" data-custom-toggle=".time-table-header" data-custom-toggle-disable-on-blur="true">Click and view TimeList</button>
+        <div class="time-table-header">
+            <ul class="timeline-list">
+                <li class="active" data-event="event-all">All</li>
+                @foreach (var item in Model.departments)
+                {
+                    <li data-event="@item.Event.Name">@item.Name</li>
+
+                }
+
+            </ul>
+            <ul class="timeline-list-nav">
+                <li class="fl-budicons-free-left161 icon icon-md prev">
+                    <i class="fas fa-angle-left"></i>
+                </li>
+                <li class="fl-budicons-free-right163 icon icon-md next">
+                    <i class="fas fa-angle-right"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="cd-schedule-wrap">
+        <!-- Timetable-->
+        <div class="cd-schedule loading text-center">
+            <div class="timeline text-left">
+                <ul>
+                    <li><span>07:00</span></li>
+                    <li><span>07:30</span></li>
+                    <li><span>08:00</span></li>
+                    <li><span>08:30</span></li>
+                    <li><span>09:00</span></li>
+                    <li><span>09:30</span></li>
+                    <li><span>10:00</span></li>
+                    <li><span>10:30</span></li>
+                    <li><span>11:00</span></li>
+                    <li><span>11:30</span></li>
+                    <li><span>12:00</span></li>
+                    <li><span>12:30</span></li>
+                    <li class="active"><span>13:00</span></li>
+                    <li><span>13:30</span></li>
+                    <li><span>14:00</span></li>
+                    <li><span>14:30</span></li>
+                    <li><span>15:00</span></li>
+                    <li><span>15:30</span></li>
+                    <li><span>16:00</span></li>
+                    <li><span>16:30</span></li>
+                    <li><span>17:00</span></li>
+                    <li><span>17:30</span></li>
+                    <li><span>18:00</span></li>
+                    <li><span>18:30</span></li>
+                    <li><span>19:00</span></li>
+                </ul>
+            </div>
+            <!-- .timeline-->
+            <div class="events">
+                <ul>
+                    <!-- Sunday-->
+                    <li class="events-group">
+                        <div class="top-info"><span>Sunday</span></div>
+                        <ul>
+                            @foreach (var item in Model.daytimes.Where(o => o.DayId == 1))
+                            {
+                                <li class="single-event" data-start="@item.Timetable.DataStart" data-end="@item.Timetable.DataEnd" data-event="@item.Timetable.Doctor.Department.Event.Name"><a href="#0"><span class="event-name">@item.Timetable.Doctor.Department.Name</span><span class="event-place">@item.Timetable.RoomName</span><span class="this-time"></span><span class="event-content">@item.Timetable.Doctor.FullName</span><span class="event-info">An F.A.C.C. is a Fellow of the American College of Cardiology. Based on their outstanding credentials, achievements, and community contribution to cardiovascular medicine, physicians who are elected to fellowship can use F.A.C.C., Fellow of the American College of Cardiology, as a professional designation.</span></a></li>
+                            }
+
+                        </ul>
+                    </li>
+                    <!-- Monday-->
+                    <li class="events-group">
+                        <div class="top-info"><span>Monday</span></div>
+                        <ul>
+                            @foreach (var item in Model.daytimes.Where(o => o.DayId == 2))
+                            {
+                                <li class="single-event" data-start="@item.Timetable.DataStart" data-end="@item.Timetable.DataEnd" data-event="@item.Timetable.Doctor.Department.Event.Name"><a href="#0"><span class="event-name">@item.Timetable.Doctor.Department.Name</span><span class="event-place">@item.Timetable.RoomName</span><span class="this-time"></span><span class="event-content">@item.Timetable.Doctor.FullName</span><span class="event-info">A cardiologist is a doctor with special training and skill in finding, treating and preventing diseases of the heart and blood vessels. If your general medical doctor feels that you might have a significant heart or related condition, he or she will often call on a cardiologist for help. Symptoms like shortness of breath, chest pains, or dizzy spells often require special testing. Sometimes heart murmurs or ECG changes need the evaluation of a cardiologist. Cardiologists help victims of heart disease return to a full and useful life and also counsel patients about the risks and prevention of heart disease.</span></a></li>
+                            }
+
+
+                        </ul>
+                    </li>
+                    <!-- Tuesday-->
+                    <li class="events-group">
+                        <div class="top-info"><span>Tuesday</span></div>
+                        <ul>
+                            @foreach (var item in Model.daytimes.Where(o => o.DayId == 3))
+                            {
+                                <li class="single-event" data-start="@item.Timetable.DataStart" data-end="@item.Timetable.DataEnd" data-event="@item.Timetable.Doctor.Department.Event.Name"><a href="#0"><span class="event-name">@item.Timetable.Doctor.Department.Name</span><span class="event-place">@item.Timetable.RoomName</span><span class="this-time"></span><span class="event-content">@item.Timetable.Doctor.FullName</span><span class="event-info">A cardiologist is a doctor with special training and skill in finding, treating and preventing diseases of the heart and blood vessels. If your general medical doctor feels that you might have a significant heart or related condition, he or she will often call on a cardiologist for help. Symptoms like shortness of breath, chest pains, or dizzy spells often require special testing. Sometimes heart murmurs or ECG changes need the evaluation of a cardiologist. Cardiologists help victims of heart disease return to a full and useful life and also counsel patients about the risks and prevention of heart disease.</span></a></li>
+                            }
+
+                        </ul>
+                    </li>
+                    <!-- Wednesday-->
+                    <li class="events-group">
+                        <div class="top-info"><span>Wednesday</span></div>
+                        <ul>
+                            @foreach (var item in Model.daytimes.Where(o => o.DayId == 4))
+                            {
+                                <li class="single-event" data-start="@item.Timetable.DataStart" data-end="@item.Timetable.DataEnd" data-event="@item.Timetable.Doctor.Department.Event.Name"><a href="#0"><span class="event-name">@item.Timetable.Doctor.Department.Name</span><span class="event-place">@item.Timetable.RoomName</span><span class="this-time"></span><span class="event-content">@item.Timetable.Doctor.FullName</span><span class="event-info">A cardiologist is a doctor with special training and skill in finding, treating and preventing diseases of the heart and blood vessels. If your general medical doctor feels that you might have a significant heart or related condition, he or she will often call on a cardiologist for help. Symptoms like shortness of breath, chest pains, or dizzy spells often require special testing. Sometimes heart murmurs or ECG changes need the evaluation of a cardiologist. Cardiologists help victims of heart disease return to a full and useful life and also counsel patients about the risks and prevention of heart disease.</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    <!-- Thursday-->
+                    <li class="events-group">
+                        <div class="top-info"><span>Thursday</span></div>
+                        <ul>
+                            @foreach (var item in Model.daytimes.Where(o => o.DayId == 5))
+                            {
+                                <li class="single-event" data-start="@item.Timetable.DataStart" data-end="@item.Timetable.DataEnd" data-event="@item.Timetable.Doctor.Department.Event.Name"><a href="#0"><span class="event-name">@item.Timetable.Doctor.Department.Name</span><span class="event-place">@item.Timetable.RoomName</span><span class="this-time"></span><span class="event-content">@item.Timetable.Doctor.FullName</span><span class="event-info">A cardiologist is a doctor with special training and skill in finding, treating and preventing diseases of the heart and blood vessels. If your general medical doctor feels that you might have a significant heart or related condition, he or she will often call on a cardiologist for help. Symptoms like shortness of breath, chest pains, or dizzy spells often require special testing. Sometimes heart murmurs or ECG changes need the evaluation of a cardiologist. Cardiologists help victims of heart disease return to a full and useful life and also counsel patients about the risks and prevention of heart disease.</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    <!-- Friday-->
+                    <li class="events-group">
+                        <div class="top-info"><span>Friday</span></div>
+                        <ul>
+                            @foreach (var item in Model.daytimes.Where(o => o.DayId == 6))
+                            {
+                                <li class="single-event" data-start="@item.Timetable.DataStart" data-end="@item.Timetable.DataEnd" data-event="@item.Timetable.Doctor.Department.Event.Name"><a href="#0"><span class="event-name">@item.Timetable.Doctor.Department.Name</span><span class="event-place">@item.Timetable.RoomName</span><span class="this-time"></span><span class="event-content">@item.Timetable.Doctor.FullName</span><span class="event-info">A cardiologist is a doctor with special training and skill in finding, treating and preventing diseases of the heart and blood vessels. If your general medical doctor feels that you might have a significant heart or related condition, he or she will often call on a cardiologist for help. Symptoms like shortness of breath, chest pains, or dizzy spells often require special testing. Sometimes heart murmurs or ECG changes need the evaluation of a cardiologist. Cardiologists help victims of heart disease return to a full and useful life and also counsel patients about the risks and prevention of heart disease.</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    <!--  Saturday-->
+                    <li class="events-group">
+                        <div class="top-info"><span> Saturday</span></div>
+                        <ul>
+                            @foreach (var item in Model.daytimes.Where(o => o.DayId == 7))
+                            {
+                                <li class="single-event" data-start="@item.Timetable.DataStart" data-end="@item.Timetable.DataEnd" data-event="@item.Timetable.Doctor.Department.Event.Name"><a href="#0"><span class="event-name">@item.Timetable.Doctor.Department.Name</span><span class="event-place">@item.Timetable.RoomName</span><span class="this-time"></span><span class="event-content">@item.Timetable.Doctor.FullName</span><span class="event-info">A cardiologist is a doctor with special training and skill in finding, treating and preventing diseases of the heart and blood vessels. If your general medical doctor feels that you might have a significant heart or related condition, he or she will often call on a cardiologist for help. Symptoms like shortness of breath, chest pains, or dizzy spells often require special testing. Sometimes heart murmurs or ECG changes need the evaluation of a cardiologist. Cardiologists help victims of heart disease return to a full and useful life and also counsel patients about the risks and prevention of heart disease.</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="event-modal">
+                <header class="header">
+                    <div class="content"><span class="event-name"></span><span class="event-place"></span><span class="event-date"></span><span class="event-content"></span></div>
+                    <div class="header-bg"></div>
+                </header>
+                <div class="body">
+                    <div class="event-info"></div>
+                    <div class="body-bg"></div>
+                </div><a class="close" href="#0">Close</a>
+            </div>
+            <div class="cover-layer"></div>
+        </div>
+    </div>
+</section>
+<!-- Page Footer-->
+<section class="section section-sm bg-white-lighter">
+    <div class="shell shell-out">
+        <div class="range range-30">
+            @foreach (var item in Model.settings)
+            {
+                <div class="cell-sm-3 cell-xs-5">
+                    <div class="preffix-xl-70" style="max-width: 274px">
+                        <h6 class="text-spacing-200 text-uppercase font-base">Contact us</h6>
+                        <div class="divider-modern"></div>
+                        <ul class="list list-md">
+
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal unit-custom">
+                                    <div class="unit-left"><span class="icon icon-md icon-primary mdi-phone"></span></div>
+                                    <div class="unit-body"><a class="link-gray-darker" href="tel_3A#">@item.Phone</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal unit-custom">
+                                    <div class="unit-left"><span class="icon icon-md icon-primary mdi-email-outline"></span></div>
+                                    <div class="unit-body" style="position: relative; top: 1px"><a class="link-gray-darker" href="mailto:#">@item.Email</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cell-sm-3 cell-xs-5">
+                    <div class="preffix-xl-70" style="max-width: 274px">
+                        <h6 class="text-spacing-200 text-uppercase font-base">clinic address</h6>
+                        <div class="divider-modern"></div>
+                        <ul class="list list-md">
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal">
+                                    <div class="unit-left"><span class="icon icon-md-biger icon-primary mdi-map-marker"></span></div>
+                                    <div class="unit-body" style="position: relative; top: -4px;"><a class="link-default" href="#">@item.Adress</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+
+            <div class="cell-sm-4">
+                <div class="preffix-xl-70" style="max-width: 433px">
+                    <h6 class="text-spacing-200 text-uppercase font-base">Our Department</h6>
+                    <div class="divider-modern"></div>
+                    @foreach (var item in Model.departments)
+                    {
+                        <ul class="list-inline list-inline-lg">
+                            <li>
+                                <ul class="list list-marked list-marked-sm list-marked-primary" style="line-height: 1.2">
+                                    <li><a class="link-default" href="@Url.Action("index","Department")">@item.Name</a></li>
+                                    <div style="height:5px"></div>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Hospital.Models.AboutClinic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_LayoutManage.cshtml";
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>About Clinics</h2>
+        </div>
+        <div class="row clearfix">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="body">
+                            <div class="member-card verified">
+                                <div class="thumb-xl member-thumb">
+                                    <img src="~/Uploads/@item.IconPhoto" class="img-thumbnail rounded-circle" alt="profile-image">
+                                </div>
+
+                                <div class="">
+                                    <h4 class="m-b-5 m-t-20">@item.Header</h4>
+                                    <p>@item.Text</p>
+                                </div>
+
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12 text-center">
+                <a href="@Url.Action("create","departments")" class="btn btn-raised g-bg-cyan">Add Department</a>
+            </div>
+        </div>
+    </div>
+</section>

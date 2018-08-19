@@ -1,0 +1,37 @@
+﻿@model Hospital.Models.AboutClinic
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Manage/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>Details</h2>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row clearfix">
+
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+
+                        <label style="display:block">Photo</label>
+                        <img style="display:block" src="~/Uploads/@Model.IconPhoto">
+                        <label style="display:block">Header</label>
+                        <h4 style="display:block" class="m-b-5 m-t-20">@Model.Header</h4>
+                        <label style="display:block">Text</label>
+                        <h4 style="display:block" class="m-b-5 m-t-20">@Model.Text</h4>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12 text-center">
+                <a href="@Url.Action("create","aboutclinics")" class="btn btn-raised g-bg-cyan">Add Doctor</a>
+            </div>
+        </div>
+    </div>
+</section>

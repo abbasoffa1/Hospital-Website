@@ -1,0 +1,60 @@
+﻿@model Hospital.Models.AboutClinic
+
+@{
+                /**/
+
+                /**/
+
+                ViewBag.Title = "Delete";
+                Layout = "~/Areas/Manage/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>Delete</h2>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h3>Are you sure you want to delete this?</h3>
+            <div>
+                <h4>AboutClinic</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Header)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Header)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Text)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Text)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IconPhoto)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IconPhoto)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-default" /> |
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

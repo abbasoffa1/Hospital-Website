@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Clinic Medical Admin</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="~/Areas/Manage/Public/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="~/Areas/Manage/Public/plugins/morrisjs/morris.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link href="~/Areas/Manage/Public/css/main.css" rel="stylesheet">
+    <!-- Swift Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="~/Areas/Manage/Public/css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-cyan">
+   
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- #Float icon -->
+    <ul id="f-menu" class="mfb-component--br mfb-zoomin" data-mfb-toggle="hover">
+        <li class="mfb-component__wrap">
+            <a href="javascript:void(0);" class="mfb-component__button--main g-bg-cyan">
+                <i class="mfb-component__main-icon--resting zmdi zmdi-plus"></i>
+                <i class="mfb-component__main-icon--active zmdi zmdi-close"></i>
+            </a>
+            <ul class="mfb-component__list">
+              
+                <li>
+                    <a href="@Url.Action("view","patient")" data-mfb-label="Patients List" class="mfb-component__button--child bg-orange">
+                        <i class="zmdi zmdi-account-o mfb-component__child-icon"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("view","payment")" data-mfb-label="Payments" class="mfb-component__button--child bg-purple">
+                        <i class="zmdi zmdi-balance-wallet mfb-component__child-icon"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- #Float icon -->
+    <!-- Morphing Search  -->
+   
+    <!-- Top Bar -->
+    <nav class="navbar clearHeader">
+        <div class="col-12">
+            <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="@Url.Action("index","dashboard")">Clinic Medical</a> </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+        
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active open"><a href="@Url.Action("index","dashboard")"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
+           
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Doctors</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="@Url.Action("index","doctors")">All Doctors</a></li>
+                            <li><a href="@Url.Action("create","doctors")">Add Doctor</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Departments</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="@Url.Action("index","departments")">All Departments</a></li>
+                            <li><a href="@Url.Action("create","departments")">Add Departments</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>About Icons</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="@Url.Action("index","aboutclinics")">All About Icons</a></li>
+                            <li> <a href="@Url.Action("create","aboutclinics")">Add About Icon</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Counters</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="@Url.Action("index","counters")">All Counters</a></li>
+                            <li><a href="@Url.Action("create","counters")">Add Counter</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>Extra Pages</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="@Url.Action("sign","home")">Sign Up</a> </li>
+                            <li> <a href="@Url.Action("forget","home")">Forgot Password</a> </li>
+                        </ul>
+                    </li>
+                   
+                </ul>
+            </div>
+            <!-- #Menu -->
+        </aside>
+
+        <!-- #END# Right Sidebar -->
+    </section>
+    @RenderBody()
+    <div class="color-bg"></div>
+    <!-- Jquery Core Js -->
+    <script src="~/Areas/Manage/Public/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+    <script src="~/Areas/Manage/Public/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+    <script src="~/Areas/Manage/Public/plugins/jquery-sparkline/jquery.sparkline.min.js"></script> <!-- Sparkline Plugin Js -->
+    <script src="~/Areas/Manage/Public/plugins/chartjs/Chart.bundle.min.js"></script> <!-- Chart Plugins Js -->
+
+    <script src="~/Areas/Manage/Public/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+    <script src="~/Areas/Manage/Public/bundles/morphingscripts.bundle.js"></script><!-- morphing search page js -->
+    <script src="~/Areas/Manage/Public/js/pages/index.js"></script>
+    <script src="~/Areas/Manage/Public/js/pages/charts/sparkline.min.js"></script>
+</body>
+
+</html>

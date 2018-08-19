@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "profile";
+}
+@model Hospital.Models.AddView
+
+<section class="section section-breadcrumb">
+    <div class="parallax-container breadcrumb-wrapper" data-parallax-img="/One/images/bg-10.jpg">
+        <div class="parallax-content section-lg context-dark">
+            <div class="shell context-dark">
+                <h2>@Model.id.FullName</h2>
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
+    <ul class="breadcrumb-custom">
+        <li><a href="@Url.Action("index","home")">Home</a></li>
+        <li><a href="#">Pages</a></li>
+        <li>
+            Dr. Jason Clark
+        </li>
+    </ul>
+</section>
+<!-- Laboratory Analysis-->
+<section class="section section-lg bg-white text-left">
+    <div class="shell">
+        <div class="range range-30">
+            <div class="cell-sm-5">
+              
+                    <img class="deyis "src="~/Uploads/@Model.id.Photo" alt="" width="400" style="height:400px" />
+
+                <div class="block-text-width-divider">
+                    <div class="block-text-width-divider-content">
+                        <p class="text-gray-darker">@Model.id.DoctorAbout</p>
+                        <p class="text-gray-darker">@Model.id.DoctorAbout</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell-sm-5">
+                <div class="single-block">
+                    <h3>@Model.id.FullName</h3>
+                    <p>@Model.id.Department.Name</p>
+                    <ul class="list-inline">
+                        <li>
+                            <div class="unit unit-spacing-xs unit-horizontal unit-custom unit-middle">
+                                <div class="unit-left"><span class="fas fa-phone"></span></div>
+                                <div class="unit-body"><a class="link-gray-darker" href="tel_3A#">@Model.id.Phone</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="unit unit-spacing-xs unit-horizontal unit-custom">
+                                <div class="unit-left"><span class="icon icon-md icon-primary mdi-email-outline"></span></div>
+                                <div class="unit-body" style="position: relative; top: 1px"><a class="link-gray-darker text-spacing-0" href="mailto:#">@Model.id.Email</a></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="quote-primary">
+                        <div class="quote-primary-body">
+                            <svg class="quote-primary-mark" version="1.1" baseprofile="tiny" xmlns="#" xmlns:xlink="#" x="0px" y="0px" width="21px" height="15px" viewbox="0 0 21 15" overflow="scroll" xml:space="preserve" preserveAspectRatio="none">
+                            <path d="M9.597,10.412c0,1.306-0.473,2.399-1.418,3.277c-0.944,0.876-2.06,1.316-3.349,1.316                           c-1.287,0-2.414-0.44-3.382-1.316C0.482,12.811,0,11.758,0,10.535c0-1.226,0.58-2.716,1.739-4.473L5.603,0H9.34L6.956,6.37                           C8.716,7.145,9.597,8.493,9.597,10.412z M20.987,10.412c0,1.306-0.473,2.399-1.418,3.277c-0.944,0.876-2.06,1.316-3.35,1.316                           c-1.288,0-2.415-0.44-3.381-1.316c-0.966-0.879-1.45-1.931-1.45-3.154c0-1.226,0.582-2.716,1.74-4.473L16.994,0h3.734l-2.382,6.37                           C20.106,7.145,20.987,8.493,20.987,10.412z"></path>
+                    </svg>
+                            <div class="quote-primary-text">
+                                <p class="q">
+                                    @Model.id.DoctorsThoughts<br class="veil reveal-xl-block"> chronic migraines and headaches.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-spacing-0">@Model.id.DoctorAbout</p>
+                    <ul class="gallery-list-inline" data-lightgallery="group">
+                       
+                       @foreach (var item in Model.certificates)
+                        {
+                            <li><a data-lightgallery="group-item" href="~/Uploads/@item.Photo"><img class="img-responsive" src="~/Uploads/@item.Photo" alt=""></a></li>
+
+                        }
+
+
+
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section section-sm bg-white-lighter">
+    <div class="shell shell-out">
+        <div class="range range-30">
+            @foreach (var item in Model.settings)
+            {
+                <div class="cell-sm-3 cell-xs-5">
+                    <div class="preffix-xl-70" style="max-width: 274px">
+                        <h6 class="text-spacing-200 text-uppercase font-base">Contact us</h6>
+                        <div class="divider-modern"></div>
+                        <ul class="list list-md">
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal unit-custom">
+                                    <div class="unit-left"><span class="icon icon-md icon-primary mdi-phone"></span></div>
+                                    <div class="unit-body"><a class="link-gray-darker" href="tel_3A#">@item.Phone</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal unit-custom">
+                                    <div class="unit-left"><span class="icon icon-md icon-primary mdi-email-outline"></span></div>
+                                    <div class="unit-body" style="position: relative; top: 1px"><a class="link-gray-darker" href="mailto:#">@item.Email</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cell-sm-3 cell-xs-5">
+                    <div class="preffix-xl-70" style="max-width: 274px">
+                        <h6 class="text-spacing-200 text-uppercase font-base">clinic address</h6>
+                        <div class="divider-modern"></div>
+                        <ul class="list list-md">
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal">
+                                    <div class="unit-left"><span class="icon icon-md-biger icon-primary mdi-map-marker"></span></div>
+                                    <div class="unit-body" style="position: relative; top: -4px;"><a class="link-default" href="#">@item.Adress</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+
+            <div class="cell-sm-4">
+                <div class="preffix-xl-70" style="max-width: 433px">
+                    <h6 class="text-spacing-200 text-uppercase font-base">Our departments</h6>
+                    <div class="divider-modern"></div>
+                    <ul class="list-inline list-inline-lg">
+                        @foreach (var item in Model.departments)
+                        {
+                            <li>
+                                <ul class="list list-marked list-marked-sm list-marked-primary" style="line-height: 1.2">
+                                    <li><a class="link-default" href="@Url.Action("index","home")">@item.Name</a></li>
+                                    <div style="height:5px"></div>
+                                </ul>
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,394 @@
+﻿
+@model Hospital.Models.AddView
+<!-- Swiper-->
+<section class="swiper-modern section section-full-width">
+    <div class="swiper-container swiper-slider" data-clickable="true" data-slide-effect="fade" data-autoplay="4000" data-simulate-touch="false">
+        <div class="swiper-wrapper">
+            @foreach (var item in Model.sliders)
+            {
+                       <div class="swiper-slide" data-slide-bg="/Uploads/@item.Photo">
+                            <div class="swiper-slide-caption">
+                                <div class="section-lg">
+                                    <div class="shell">
+                                        <p class="heading-4 heading-divider-modern" data-caption-animate="fadeInUp" data-caption-delay="250" style="font-weight: 400">@item.Text</p>
+                                        <h1 data-caption-animate="fadeInUp" data-caption-delay="100">@item.Title</h1><a class="button button-primary button-effect-ujarak" href="@Url.Action("index","contact")" data-caption-animate="fadeInUp" data-caption-delay="450">make an Appointment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            }
+           
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+            <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="swiper-button-next">
+            <i class="fas fa-angle-right"></i>
+        </div>
+    </div>
+</section>
+<!-- Opening Hours-->
+<section class="section section-lg bg-white section-after-swiper-modern section-full-width">
+    <div class="shell">
+        <div class="range range-30 block-classic-wrap">
+            <div class="cell-sm-5 cell-lg-3 reveal-sm-flex">
+                <div class="block-classic">
+                    <div class="block-classic-title">
+                        <h4>Emergency Help</h4>
+                    </div>
+                    <div class="block-classic-link"><span class="icon mdi-phone"></span><a href="tel_3A#">1-800-700-6200</a></div>
+                    <div class="block-classic-divider"></div>
+                    <p>We provide 24/7 professional emergency help for all kinds of medical problems.</p>
+                </div>
+            </div>
+            <div class="cell-sm-5 cell-lg-3 reveal-sm-flex">
+                <div class="block-classic">
+                    <div class="block-classic-title">
+                        <h4>Opening Hours</h4>
+                    </div>
+                    @foreach (var item in Model.openingHours)
+                    {
+                        <div class="work-info">
+                            <div>
+                                <dl>
+                                    <dt>@item.Name</dt>
+                                    <dd>@item.Date</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="cell-lg-4 reveal-md-flex">
+                <div class="block-classic">
+                    <div class="block-classic-title">
+                        <h4>Make an Appointment</h4>
+                    </div>
+                    <form class="rd-mailform" data-form-output="form-output-global" action="@Url.Action("Index","Home")">
+                        <div class="range range-xs-center range-20 range-narrow">
+                            <div class="cell-sm-5">
+                                <div class="form-wrap form-wrap-validation">
+                                    <select class="form-input select-filter" data-style="classic" data-placeholder="Select a Department" data-minimum-results-for-search="Infinity" data-constraints=" ">
+                                        <option label="Choose Department"></option>
+                                       @foreach (var item in Model.departments)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="cell-sm-5">
+                                <div class="form-wrap form-wrap-validation">
+                                    <label class="form-label" for="forms-phone">Phone</label>
+                                    <input class="form-input" id="forms-phone" type="text" name="Phone">
+                                </div>
+                            </div>
+                            <div class="cell-sm-5">
+                                <div class="form-wrap form-wrap-validation">
+                                    <label class="form-label" for="forms-email">E-mail</label>
+                                    <input class="form-input" id="forms-email" type="email" name="Email">
+                                </div>
+                            </div>
+                            <div class="cell-sm-5">
+                                <div class="form-button">
+                                    <button class="button button-effect-ujarak button-albus button-block button-square" type="submit">make an Appointment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Clinic-->
+<section class="section section-full-width">
+    <div class="parallax-container parallax-container-modern" data-parallax-img="/One/images/bg-13.jpg">
+        <div class="parallax-content section-lg context-dark">
+            <div class="shell">
+                <div class="range range-30">
+
+                    <div class="cell-lg-5">
+
+                        <div class="about-out">
+                            @foreach (var item in Model.aboutClinics)
+                            {
+                                <div class="about-out-item wow fadeIn" data-wow-delay=".4s">
+
+                                    <div class="about-out-item-inner">
+                                        <div class="aboutPhoto">
+                                            <h4>@item.Header</h4>
+                                            <p>@item.Text</p>
+                                        </div><span class="about-out-item-inner-decor"></span>
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+
+
+                    <div class="cell-lg-5 reveal-lg-flex">
+                        @foreach (var item in Model.aboutPhotos)
+                        {
+                            <div class="about-unit">
+                                <h2 class="about-unit-title wow fadeInUp" data-wow-delay=".4s">About Clinic</h2>
+                                <p class="wow fadeInUp" data-wow-delay=".5s">@item.AboutText</p>
+                                <div class="about-unit-quote">
+                                    <div class="about-unit-quote-left wow fadeIn" data-wow-delay=".8s">
+                                        <img src="~/Uploads/@item.Photo" alt="" width="203" height="260" />
+                                    </div>
+
+                                    <div class="about-unit-quote-body">
+
+
+
+                                        <h4 class="about-unit-quote-title wow fadeInUp" data-wow-delay=".9s">@item.DoctorName</h4>
+                                        <p class="about-unit-quote-cite wow fadeInUp" data-wow-delay="1s">@item.Department.Name</p>
+                                        <div class="about-unit-quote-divider wow fadeInUp" data-wow-delay="1.1s"></div>
+                                        <div class="about-unit-quote-content">
+                                            <div class="about-unit-quote-content-left wow fadeIn" data-wow-delay="1.2s">
+                                                <svg width="42px" height="30px">
+                                                    <defs>
+                                                        <filter>
+                                                            <feflood flood-color="rgb(142, 160, 191)" flood-opacity="1" result="floodOut"></feflood>
+                                                        </filter>
+                                                    </defs>
+                                                    <g>
+                                                        <path fill-rule="evenodd" d="M19.204,20.825 C19.204,23.436 18.258,25.621 16.367,27.377 C14.479,29.128 12.245,30.007 9.667,30.007 C7.093,30.007 4.837,29.128 2.901,27.377 C0.968,25.621 0.004,23.516 0.004,21.071 C0.004,18.619 1.164,15.641 3.482,12.129 L11.215,0.008 L18.691,0.008 L13.920,12.745 C17.442,14.292 19.204,16.989 19.204,20.825 ZM41.993,20.825 C41.993,23.436 41.047,25.621 39.156,27.377 C37.268,29.128 35.034,30.007 32.454,30.007 C29.878,30.007 27.623,29.128 25.689,27.377 C23.757,25.621 22.789,23.516 22.789,21.071 C22.789,18.619 23.953,15.641 26.270,12.129 L34.004,0.008 L41.474,0.008 L36.709,12.745 C40.230,14.292 41.993,16.989 41.993,20.825 Z"></path>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="about-unit-quote-content-body wow fadeIn" data-wow-delay="1.3s">
+                                                <p>@item.DoctorThink</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                    
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Departaments-->
+<section class="section section-lg bg-white section-full-width">
+    <div class="shell">
+        <div class="range range-30">
+            <div class="cell-lg-8">
+                <div class="box text-center text-sm-left">
+                    <div class="box-left">
+                        <h2>Departments</h2>
+                    </div>
+                    <div class="box-right">
+                        <div class="owl-outer-navigation" id="owl-carousel-nav-1">
+                            <div class="owl-arrow owl-arrow-prev fl-budicons-free-left161">
+                                <i class="fas fa-angle-left"></i>
+                            </div>
+                            <div class="owl-arrow owl-arrow-next fl-budicons-free-right163">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div><a class="button button-albus button-effect-ujarak" href="@Url.Action("index","departments")"> all departments</a>
+                    </div>
+                </div>
+                <div class="divider-default"></div>
+                <div class="owl-carousel" data-items="1" data-sm-items="3" data-md-items="3" data-lg-items="4" data-stage-padding="0" data-loop="false" data-autoplay="true" data-margin="30" data-mouse-drag="false" data-nav-custom="#owl-carousel-nav-1">
+                    @foreach (var item in Model.departments)
+                    {
+                        <div class="item wow fadeInUp" data-wow-delay=".4s">
+                            <div class="thumb-default">
+                                <a href="#"><img src="~/Uploads/@item.Photo" alt="" width="267" height="229" /></a>
+                                <h4 class="thumb-default-title"><a href="#"> @item.Name</a></h4>
+                                <p>@item.About</p>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+            <div class="cell-lg-2 wow fadeIn" data-wow-delay="1.2s">
+                <div class="aside-info aside-info-style-1 aside-info-solo">
+                    <div class="aside-info-item">
+                        <ul>
+                            @foreach (var item in Model.departments)
+                            {
+                                <li><a href="#">@item.Name</a></li>
+
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- What Our Clients Say-->
+<section class="section section-full-width section-lg bg-white-lighter text-center">
+    <div class="shell">
+        <h2>What Our Clients Say</h2>
+        <!-- Slick Carousel-->
+        <div class="slick-slider slick-slider-center-mod" data-loop="true" data-autoplay="true" data-dots="true" data-swipe="true" data-items="1" data-xs-items="1" data-sm-items="1" data-md-items="1" data-lg-items="3" data-center-mode="true" data-speed="600">
+            @foreach (var item in Model.testimonials)
+            {
+                <div class="item">
+                    <div class="item-inner">
+                        <div class="block-info">
+                            <div class="block-info-inner">
+                                <img class="img-circle" src="~/Uploads/@item.Photo" alt="" width="91" height="91" />
+                                <p>@item.Text</p>
+                                <p class="heading-5">@item.AuthorName</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</section>
+<!-- Our Doctors-->
+<section class="section section-lg bg-white section-full-width text-center">
+    <div class="shell">
+        <div class="range range-30">
+            <div class="cell-lg-8">
+                <div class="box">
+                    <div class="box-left">
+                        <h2>Our Doctors</h2>
+                    </div>
+                    <div class="box-right">
+                        <div class="owl-outer-navigation" id="owl-carousel-nav">
+                            <div class="owl-arrow owl-arrow-prev fl-budicons-free-left161">
+                                <i class="fas fa-angle-left"></i>
+                            </div>
+                            <div class="owl-arrow owl-arrow-next fl-budicons-free-right163">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div><a class="button button-albus button-effect-ujarak" href="@Url.Action("index","timetable")"> View TimeTable</a>
+                    </div>
+                </div>
+                <div class="divider-default"></div>
+                <div class="owl-carousel" data-items="1" data-sm-items="3" data-md-items="3" data-lg-items="4" data-stage-padding="0" data-loop="true" data-autoplay="true" data-margin="30" data-mouse-drag="false" data-nav-custom="#owl-carousel-nav">
+
+                    @foreach (var item in Model.doctors)
+                    {
+                        <div class="item wow fadeInUp" data-wow-delay=".4s">
+                            <div class="vip">
+                                <div class="vip-image-block">
+                                    <img src="~/Uploads/@item.Photo" alt="" width="268" height="216" />
+                                </div>
+                                <div class="vip-content">
+                                    <h5><a href="@Url.Action("profile","doctors",new { id = item.Id})">@item.FullName</a></h5>
+                                    <div class="vip-cite"><span>@item.Department.Name</span></div>
+                                    <div class="vip-divider"></div>
+                                    <div class="vip-link"><span class="fas fa-phone"></span><a href="#">@item.Phone</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+            <div class="cell-lg-2 wow fadeIn" data-wow-delay="1.2s">
+                <div class="demo-image-block">
+                    <a class="demo-image-block-link" href="@Url.Action("index","timetable")">
+                        <img src="~/One/images/about-02-268x483.jpg" alt="" width="268" height="483" />
+                        <div class="demo-image-block-link-text"><span class="heading-4">Make an Appointment</span><span>Let us help you deal with health concerns.</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Page Footer-->
+<!-- Contact us-->
+<section class="section section-sm section-full-width bg-gray-bright context-dark">
+    <div class="shell">
+        <div class="range range-40">
+            <div class="cell-lg-3 cell-sm-5">
+                <div style="max-width: 274px">
+                    <h6 class="text-spacing-200 text-uppercase font-base">Contact Information</h6>
+                    <div class="divider-default"></div>
+                    <ul class="list list-lg">
+                        @foreach (var item in Model.settings)
+                        {
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal unit-custom unit-middle">
+                                    <div class="unit-left"><span class="icon icon-md-big icon-primary mdi-phone"></span></div>
+                                    <div class="unit-body"><a class="link-footer big text-spacing-75 font-sec" href="tel_3A#">@item.Phone</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal unit-custom unit-middle">
+                                    <div class="unit-left"><span class="icon icon-md-biger icon-primary mdi-email-outline"></span></div>
+                                    <div class="unit-body" style="position: relative; top: -1px"><a class="link-footer" href="mailto:#">@item.Email</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal">
+                                    <div class="unit-left"><span class="icon icon-md-biger icon-primary mdi-map-marker"></span></div>
+                                    <div class="unit-body" style="position: relative; top: -4px;"><a class="link-footer" href="#">@item.Adress</a></div>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+            <div class="cell-lg-3 cell-sm-5">
+                <div style="max-width: 283px">
+                    <h6 class="text-spacing-200 text-uppercase font-base">Latest news</h6>
+                    <div class="divider-default"></div>
+                    <ul class="list list-lg">
+                        <li>
+                            <article class="news-mini">
+                                <h6 class="news-mini-title"><a href="news-page.html">Stress at Work – How to Reduce?</a></h6><a class="news-mini-time" href="news-page.html">January 12, 2018</a>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="news-mini">
+                                <h6 class="news-mini-title"><a href="news-page.html">Helping Children Deal With Trauma</a></h6><a class="news-mini-time" href="news-page.html">January 23, 2018</a>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cell-lg-4">
+                <div>
+                    <h6 class="text-spacing-200 text-uppercase font-base">have any questions? Contact us now</h6>
+                    <div class="divider-default"></div>
+                    <form class="rd-mailform rd-mailform-mini" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                        <div class="rd-mailform-mini-left">
+                            <div class="form-wrap form-wrap-validation">
+                                <label class="form-label" for="forms-message-footer">Your Message</label>
+                                <textarea class="form-input" id="forms-message-footer" name="message" data-constraints=" "></textarea>
+                            </div>
+                        </div>
+                        <div class="rd-mailform-mini-right">
+                            <div class="form-wrap form-wrap-validation">
+                                <label class="form-label" for="forms-email-footer">E-mail</label>
+                                <input class="form-input" id="forms-email-footer" type="email" name="email" data-constraints=" ">
+                            </div>
+                            <div class="form-button">
+                                <button class="button button-effect-ujarak button-primary button-block button-square" type="submit">send message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1FC77E67-6409-4A85-9FF7-F192ECA4C554}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hospital</RootNamespace>
+    <AssemblyName>Hospital</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Manage\Controllers\AboutClinicsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\CertificatesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\CountersController.cs" />
+    <Compile Include="Areas\Manage\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Manage\Controllers\DepartmentsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\DoctorsController.cs" />
+    <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\DoctorsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TimetableController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AboutClinic.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AboutPhoto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddView.cs" />
+    <Compile Include="Models\Appoinment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Certificate.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Counter.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Day.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DayTime.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Doctor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Event.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OpeningHour.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Setting.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Slider.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Testimonial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Timetable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Manage\Public\bundles\datatablescripts.bundle.js" />
+    <Content Include="Areas\Manage\Public\bundles\fullcalendarscripts.bundle.js" />
+    <Content Include="Areas\Manage\Public\bundles\jvectormapscripts.bundle.js" />
+    <Content Include="Areas\Manage\Public\bundles\libscripts.bundle.js" />
+    <Content Include="Areas\Manage\Public\bundles\mainscripts.bundle.js" />
+    <Content Include="Areas\Manage\Public\bundles\morphingscripts.bundle.js" />
+    <Content Include="Areas\Manage\Public\bundles\morphingsearchscripts.bundle.js" />
+    <Content Include="Areas\Manage\Public\bundles\vendorscripts.bundle.js" />
+    <Content Include="Areas\Manage\Public\css\login.css" />
+    <Content Include="Areas\Manage\Public\css\main.css" />
+    <Content Include="Areas\Manage\Public\css\themes\all-themes.css" />
+    <Content Include="Areas\Manage\Public\images\animation-bg.jpg" />
+    <Content Include="Areas\Manage\Public\images\bg-1.jpg" />
+    <Content Include="Areas\Manage\Public\images\image-1.jpg" />
+    <Content Include="Areas\Manage\Public\images\logo-placeholder.jpg" />
+    <Content Include="Areas\Manage\Public\images\profile-bg.jpg" />
+    <Content Include="Areas\Manage\Public\images\puppy-1.jpg" />
+    <Content Include="Areas\Manage\Public\images\puppy-2.jpg" />
+    <Content Include="Areas\Manage\Public\images\puppy-3.jpg" />
+    <Content Include="Areas\Manage\Public\images\random-avatar1.jpg" />
+    <Content Include="Areas\Manage\Public\images\random-avatar2.jpg" />
+    <Content Include="Areas\Manage\Public\images\random-avatar3.jpg" />
+    <Content Include="Areas\Manage\Public\images\random-avatar4.jpg" />
+    <Content Include="Areas\Manage\Public\images\random-avatar5.jpg" />
+    <Content Include="Areas\Manage\Public\images\random-avatar6.jpg" />
+    <Content Include="Areas\Manage\Public\images\random-avatar7.jpg" />
+    <Content Include="Areas\Manage\Public\images\xs\avatar1.jpg" />
+    <Content Include="Areas\Manage\Public\images\xs\avatar2.jpg" />
+    <Content Include="Areas\Manage\Public\images\xs\avatar3.jpg" />
+    <Content Include="Areas\Manage\Public\images\xs\avatar4.jpg" />
+    <Content Include="Areas\Manage\Public\images\xs\avatar5.jpg" />
+    <Content Include="Areas\Manage\Public\js\morphing.js" />
+    <Content Include="Areas\Manage\Public\js\pages\calendar\calendar.js" />
+    <Content Include="Areas\Manage\Public\js\pages\cards\basic.js" />
+    <Content Include="Areas\Manage\Public\js\pages\charts\chartjs.min.js" />
+    <Content Include="Areas\Manage\Public\js\pages\charts\sparkline.min.js" />
+    <Content Include="Areas\Manage\Public\js\pages\forms\basic-form-elements.js" />
+    <Content Include="Areas\Manage\Public\js\pages\forms\editors.js" />
+    <Content Include="Areas\Manage\Public\js\pages\index.js" />
+    <Content Include="Areas\Manage\Public\js\pages\maps\jvectormap.js" />
+    <Content Include="Areas\Manage\Public\js\pages\tables\jquery-datatable.js" />
+    <Content Include="Areas\Manage\Public\js\pages\ui\animations.js" />
+    <Content Include="Areas\Manage\Public\js\pages\ui\dialogs.js" />
+    <Content Include="Areas\Manage\Public\js\pages\ui\modals.js" />
+    <Content Include="Areas\Manage\Public\js\pages\ui\notifications.js" />
+    <Content Include="Areas\Manage\Public\js\pages\ui\range-sliders.js" />
+    <Content Include="Areas\Manage\Public\js\pages\ui\sortable-nestable.js" />
+    <Content Include="Areas\Manage\Public\js\pages\widgets\infobox\infobox-1.js" />
+    <Content Include="Areas\Manage\Public\plugins\autosize\autosize.js" />
+    <Content Include="Areas\Manage\Public\plugins\bootstrap-material-datetimepicker\css\bootstrap-material-datetimepicker.css" />
+    <Content Include="Areas\Manage\Public\plugins\bootstrap-material-datetimepicker\js\bootstrap-material-datetimepicker.js" />
+    <Content Include="Areas\Manage\Public\plugins\bootstrap-notify\bootstrap-notify.js" />
+    <Content Include="Areas\Manage\Public\plugins\bootstrap-select\css\bootstrap-select.css" />
+    <Content Include="Areas\Manage\Public\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Manage\Public\plugins\chartjs\Chart.bundle.min.js" />
+    <Content Include="Areas\Manage\Public\plugins\ckeditor\ckeditor.js" />
+    <Content Include="Areas\Manage\Public\plugins\dropzone\dropzone.css" />
+    <Content Include="Areas\Manage\Public\plugins\dropzone\dropzone.js" />
+    <Content Include="Areas\Manage\Public\plugins\fullcalendar\fullcalendar.min.css" />
+    <Content Include="Areas\Manage\Public\plugins\ion-rangeslider\css\ion.rangeSlider.css" />
+    <Content Include="Areas\Manage\Public\plugins\ion-rangeslider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="Areas\Manage\Public\plugins\ion-rangeslider\img\sprite-skin-flat.png" />
+    <Content Include="Areas\Manage\Public\plugins\ion-rangeslider\js\ion.rangeSlider.js" />
+    <Content Include="Areas\Manage\Public\plugins\jquery-countto\jquery.countTo.js" />
+    <Content Include="Areas\Manage\Public\plugins\jquery-datatable\dataTables.bootstrap4.min.css" />
+    <Content Include="Areas\Manage\Public\plugins\jquery-sparkline\jquery.sparkline.min.js" />
+    <Content Include="Areas\Manage\Public\plugins\jvectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Areas\Manage\Public\plugins\momentjs\moment.js" />
+    <Content Include="Areas\Manage\Public\plugins\morrisjs\morris.css" />
+    <Content Include="Areas\Manage\Public\plugins\nestable\jquery-nestable.css" />
+    <Content Include="Areas\Manage\Public\plugins\nestable\jquery.nestable.js" />
+    <Content Include="Areas\Manage\Public\plugins\sweetalert\sweetalert.css" />
+    <Content Include="Areas\Manage\Public\plugins\sweetalert\sweetalert.min.js" />
+    <Content Include="Areas\Manage\Public\plugins\waitme\waitMe.css" />
+    <Content Include="Areas\Manage\Public\plugins\waitme\waitMe.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="One\css\bootstrap.css" />
+    <Content Include="One\css\fonts.css" />
+    <Content Include="One\css\navbar.css" />
+    <Content Include="One\css\style.css" />
+    <Content Include="One\images\bg-02-style-1.jpg" />
+    <Content Include="One\images\bg-06.jpg" />
+    <Content Include="One\images\bg-10.jpg" />
+    <Content Include="Uploads\about-01-203x260.jpg" />
+    <Content Include="One\images\about-02-268x483.jpg" />
+    <Content Include="One\images\bg-13.jpg" />
+    <Content Include="Uploads\about-01-803x458.jpg" />
+    <Content Include="Uploads\bg-12.jpg" />
+    <Content Include="Uploads\certifacation-01-153x219.jpg" />
+    <Content Include="Uploads\clients-01-91x91.jpg" />
+    <Content Include="Uploads\clients-02-91x91.jpg" />
+    <Content Include="Uploads\clients-03-91x91.jpg" />
+    <Content Include="Uploads\clients-04-91x91.jpg" />
+    <Content Include="Uploads\departments-01-267x229.jpg" />
+    <Content Include="Uploads\departments-02-267x229.jpg" />
+    <Content Include="Uploads\departments-03-267x229.jpg" />
+    <Content Include="Uploads\departments-04-267x229.jpg" />
+    <Content Include="Uploads\departments-05-267x229.jpg" />
+    <Content Include="Uploads\departments-06-267x229.jpg" />
+    <Content Include="Uploads\departments-07-267x229.jpg" />
+    <Content Include="Uploads\diagnostics-01-268x216.jpg" />
+    <Content Include="Uploads\diagnostics-02-268x216.jpg" />
+    <Content Include="Uploads\diagnostics-03-268x216.jpg" />
+    <Content Include="Uploads\diagnostics-04-268x216.jpg" />
+    <Content Include="Uploads\diagnostics-05-268x216.jpg" />
+    <Content Include="Uploads\diagnostics-06-268x216.jpg" />
+    <Content Include="Uploads\diagnostics-07-268x216.jpg" />
+    <Content Include="Uploads\diagnostics-08-268x216.jpg" />
+    <Content Include="One\images\logo-79x92.png" />
+    <Content Include="Uploads\icon-01-34x52.png" />
+    <Content Include="Uploads\icon-02-33x52.png" />
+    <Content Include="Uploads\icon-03-39x39.png" />
+    <Content Include="Uploads\icon-04-36x43.png" />
+    <Content Include="Uploads\slide-01.jpg" />
+    <Content Include="Uploads\slide-02.jpg" />
+    <Content Include="Uploads\slide-03.jpg" />
+    <Content Include="One\js\core.min.js" />
+    <Content Include="One\js\script.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="One\css\Descr.WD3" />
+    <Content Include="One\images\Thumbs.db" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Ops\Error.cshtml" />
+    <Content Include="Views\Ops\layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Departments\Index.cshtml" />
+    <Content Include="Views\Timetable\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Manage\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Manage\Views\web.config" />
+    <Content Include="Areas\Manage\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\_LayoutManage.cshtml" />
+    <Content Include="Areas\Manage\Public\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="Areas\Manage\Public\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="Areas\Manage\Public\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="Areas\Manage\Public\images\Thumbs.db" />
+    <Content Include="Areas\Manage\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Doctors\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Departments\Index.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manage\Views\AboutClinics\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\AboutClinics\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\AboutClinics\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\AboutClinics\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\AboutClinics\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Counters\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Certificates\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Certificates\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Certificates\Details.cshtml" />
+    <Content Include="Areas\Manage\Views\Certificates\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Certificates\Index.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\Doctors\Index.cshtml" />
+    <Content Include="Views\Doctors\Profile.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49375</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49375/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

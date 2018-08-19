@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7d4997340ac640c99014d9e1bbd5694b" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="HospitalFinalModel.AboutPhoto" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Appoinment" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Certificate" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Counter" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Day" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.DayTime" Width="1.5" PointX="9.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Doctor" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Event" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.OpeningHour" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Setting" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Slider" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Testimonial" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Timetable" Width="1.5" PointX="7.5" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="HospitalFinalModel.FK_Certificates_Doctors" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalFinalModel.FK_DayTime_Days" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalFinalModel.FK_DayTime_Timetable" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalFinalModel.FK_Timetable_Doctors" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HospitalFinalModel.Department" Width="1.5" PointX="3" PointY="5.375" />
+        <AssociationConnector Association="HospitalFinalModel.FK_AboutPhoto_Departments" />
+        <AssociationConnector Association="HospitalFinalModel.FK_Appoinment_Departments" />
+        <AssociationConnector Association="HospitalFinalModel.FK_Departments_Events" />
+        <AssociationConnector Association="HospitalFinalModel.FK_Doctors_Departments" />
+        <EntityTypeShape EntityType="HospitalFinalModel.AboutClinic" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalFinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AboutPhoto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AboutText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="DoctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DoctorThink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="HospitalFinalModel.FK_AboutPhoto_Departments" FromRole="AboutPhoto" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="Appoinment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="HospitalFinalModel.FK_Appoinment_Departments" FromRole="Appoinment" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="Certificate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Photo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DoctorId" Type="Int32" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK_Certificates_Doctors" FromRole="Certificates" ToRole="Doctors" />
+  </EntityType>
+  <EntityType Name="Counter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Day">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DayTimes" Relationship="Self.FK_DayTime_Days" FromRole="Days" ToRole="DayTime" />
+  </EntityType>
+  <EntityType Name="DayTime">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DayId" Type="Int32" Nullable="false" />
+    <Property Name="TimetableId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Day" Relationship="Self.FK_DayTime_Days" FromRole="DayTime" ToRole="Days" />
+    <NavigationProperty Name="Timetable" Relationship="Self.FK_DayTime_Timetable" FromRole="DayTime" ToRole="Timetable" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DoctorAbout" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DoctorsThoughts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Certificates" Relationship="Self.FK_Certificates_Doctors" FromRole="Doctors" ToRole="Certificates" />
+    <NavigationProperty Name="Timetables" Relationship="Self.FK_Timetable_Doctors" FromRole="Doctors" ToRole="Timetable" />
+    <NavigationProperty Name="Department" Relationship="HospitalFinalModel.FK_Doctors_Departments" FromRole="Doctor" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Departments" Relationship="HospitalFinalModel.FK_Departments_Events" FromRole="Event" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="OpeningHour">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Logo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Testimonial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Photo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Timetable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataStart" Type="Time" Precision="7" />
+    <Property Name="DataEnd" Type="Time" Precision="7" />
+    <Property Name="DoctorsId" Type="Int32" />
+    <Property Name="RoomName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DayTimes" Relationship="Self.FK_DayTime_Timetable" FromRole="Timetable" ToRole="DayTime" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK_Timetable_Doctors" FromRole="Timetable" ToRole="Doctors" />
+  </EntityType>
+  <Association Name="FK_Certificates_Doctors">
+    <End Role="Doctors" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="Certificates" Type="Self.Certificate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Certificates">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DayTime_Days">
+    <End Role="Days" Type="Self.Day" Multiplicity="1" />
+    <End Role="DayTime" Type="Self.DayTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Days">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DayTime">
+        <PropertyRef Name="DayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DayTime_Timetable">
+    <End Role="Timetable" Type="Self.Timetable" Multiplicity="1" />
+    <End Role="DayTime" Type="Self.DayTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Timetable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DayTime">
+        <PropertyRef Name="TimetableId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Timetable_Doctors">
+    <End Role="Doctors" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="Timetable" Type="Self.Timetable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Timetable">
+        <PropertyRef Name="DoctorsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalFinalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AboutPhotoes" EntityType="Self.AboutPhoto" />
+    <EntitySet Name="Appoinments" EntityType="Self.Appoinment" />
+    <EntitySet Name="Certificates" EntityType="Self.Certificate" />
+    <EntitySet Name="Counters" EntityType="Self.Counter" />
+    <EntitySet Name="Days" EntityType="Self.Day" />
+    <EntitySet Name="DayTimes" EntityType="Self.DayTime" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="Events" EntityType="Self.Event" />
+    <EntitySet Name="OpeningHours" EntityType="Self.OpeningHour" />
+    <EntitySet Name="Settings" EntityType="Self.Setting" />
+    <EntitySet Name="Sliders" EntityType="Self.Slider" />
+    <EntitySet Name="Testimonials" EntityType="Self.Testimonial" />
+    <EntitySet Name="Timetables" EntityType="Self.Timetable" />
+    <AssociationSet Name="FK_Certificates_Doctors" Association="Self.FK_Certificates_Doctors">
+      <End Role="Doctors" EntitySet="Doctors" />
+      <End Role="Certificates" EntitySet="Certificates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DayTime_Days" Association="Self.FK_DayTime_Days">
+      <End Role="Days" EntitySet="Days" />
+      <End Role="DayTime" EntitySet="DayTimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DayTime_Timetable" Association="Self.FK_DayTime_Timetable">
+      <End Role="Timetable" EntitySet="Timetables" />
+      <End Role="DayTime" EntitySet="DayTimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Timetable_Doctors" Association="Self.FK_Timetable_Doctors">
+      <End Role="Doctors" EntitySet="Doctors" />
+      <End Role="Timetable" EntitySet="Timetables" />
+    </AssociationSet>
+    <EntitySet Name="Department" EntityType="HospitalFinalModel.Department" />
+    <AssociationSet Name="FK_AboutPhoto_Departments" Association="HospitalFinalModel.FK_AboutPhoto_Departments">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="AboutPhoto" EntitySet="AboutPhotoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Appoinment_Departments" Association="HospitalFinalModel.FK_Appoinment_Departments">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Appoinment" EntitySet="Appoinments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departments_Events" Association="HospitalFinalModel.FK_Departments_Events">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctors_Departments" Association="HospitalFinalModel.FK_Doctors_Departments">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Doctor" EntitySet="Doctors" />
+    </AssociationSet>
+    <EntitySet Name="AboutClinics" EntityType="HospitalFinalModel.AboutClinic" />
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EventId" Type="Int32" />
+    <NavigationProperty Name="AboutPhotoes" Relationship="HospitalFinalModel.FK_AboutPhoto_Departments" FromRole="Department" ToRole="AboutPhoto" />
+    <NavigationProperty Name="Appoinments" Relationship="HospitalFinalModel.FK_Appoinment_Departments" FromRole="Department" ToRole="Appoinment" />
+    <NavigationProperty Name="Event" Relationship="HospitalFinalModel.FK_Departments_Events" FromRole="Department" ToRole="Event" />
+    <NavigationProperty Name="Doctors" Relationship="HospitalFinalModel.FK_Doctors_Departments" FromRole="Department" ToRole="Doctor" />
+  </EntityType>
+  <Association Name="FK_AboutPhoto_Departments">
+    <End Type="HospitalFinalModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="HospitalFinalModel.AboutPhoto" Role="AboutPhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AboutPhoto">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Appoinment_Departments">
+    <End Type="HospitalFinalModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="HospitalFinalModel.Appoinment" Role="Appoinment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appoinment">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departments_Events">
+    <End Type="HospitalFinalModel.Event" Role="Event" Multiplicity="0..1" />
+    <End Type="HospitalFinalModel.Department" Role="Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctors_Departments">
+    <End Type="HospitalFinalModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="HospitalFinalModel.Doctor" Role="Doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AboutClinic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Header" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IconPhoto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

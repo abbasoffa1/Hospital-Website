@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model Hospital.Models.AddView
+<section class="section section-breadcrumb">
+    <div class="parallax-container breadcrumb-wrapper" data-parallax-img="/One/images/bg-10.jpg">
+        <div class="parallax-content section-lg context-dark">
+            <div class="shell context-dark">
+                <h2>Doctors</h2>
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
+    <ul class="breadcrumb-custom">
+        <li><a href="@Url.Action("index","home")">Home</a></li>
+        <li><a href="#">Pages</a></li>
+        <li>
+            Doctors
+        </li>
+    </ul>
+</section>
+<!-- Laboratory Analysis-->
+<section class="section section-lg bg-white text-left">
+    <div class="shell">
+        <div class="range range-60">
+            <div class="cell-lg-8">
+                <div class="range range-35">
+                   @foreach (var item in Model.doctors)
+                    {
+                        <div class="cell-xs-5 cell-sm-33 cell-md-25">
+                            <div class="vip">
+                                <div class="vip-image-block">
+                                    <img src="~/Uploads/@item.Photo" alt="" width="268" height="216" />
+                                </div>
+                                <div class="vip-content">
+                                    <h5><a href="@Url.Action("profile","doctors",new { id = item.Id})">@item.FullName</a></h5>
+                                    <div class="vip-cite"><span>@item.Department.Name</span></div>
+                                    <div class="vip-divider"></div>
+                                    <div class="vip-link"><span class="icon icon-md icon-primary mdi-phone"></span><a href="#">@item.Phone</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+            <div class="cell-lg-2">
+                <div class="aside-info">
+                    <div class="aside-info-item">
+                        <h4>Departments</h4>
+                        <ul>
+                           @foreach (var item in Model.departments)
+                            {
+                                <li><a href="@Url.Action("index","departments")">@item.Name</a></li>
+
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="aside-info-item aside-info-item-table">
+                        <h4>Opening Hours</h4>
+                        <div>
+                           @foreach (var item in Model.openingHours)
+                            {
+                                <dl>
+                                    <dt>@item.Name</dt>
+                                    <dd>@item.Date</dd>
+                                </dl>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section section-sm bg-white-lighter">
+    <div class="shell shell-out">
+        <div class="range range-30">
+            @foreach (var item in Model.settings)
+            {
+                <div class="cell-sm-3 cell-xs-5">
+                    <div class="preffix-xl-70" style="max-width: 274px">
+                        <h6 class="text-spacing-200 text-uppercase font-base">Contact us</h6>
+                        <div class="divider-modern"></div>
+                        <ul class="list list-md">
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal unit-custom">
+                                    <div class="unit-left"><span class="icon icon-md icon-primary mdi-phone"></span></div>
+                                    <div class="unit-body"><a class="link-gray-darker" href="tel_3A#">@item.Phone</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal unit-custom">
+                                    <div class="unit-left"><span class="icon icon-md icon-primary mdi-email-outline"></span></div>
+                                    <div class="unit-body" style="position: relative; top: 1px"><a class="link-gray-darker" href="mailto:#">@item.Email</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cell-sm-3 cell-xs-5">
+                    <div class="preffix-xl-70" style="max-width: 274px">
+                        <h6 class="text-spacing-200 text-uppercase font-base">clinic address</h6>
+                        <div class="divider-modern"></div>
+                        <ul class="list list-md">
+                            <li>
+                                <div class="unit unit-spacing-xs unit-horizontal">
+                                    <div class="unit-left"><span class="icon icon-md-biger icon-primary mdi-map-marker"></span></div>
+                                    <div class="unit-body" style="position: relative; top: -4px;"><a class="link-default" href="#">@item.Adress</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+
+            <div class="cell-sm-4">
+                <div class="preffix-xl-70" style="max-width: 433px">
+                    <h6 class="text-spacing-200 text-uppercase font-base">Our departments</h6>
+                    <div class="divider-modern"></div>
+                    <ul class="list-inline list-inline-lg">
+                        @foreach (var item in Model.departments)
+                        {
+                            <li>
+                                <ul class="list list-marked list-marked-sm list-marked-primary" style="line-height: 1.2">
+                                    <li><a class="link-default" href="@Url.Action("index","home")">@item.Name</a></li>
+                                    <div style="height:5px"></div>
+                                </ul>
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
